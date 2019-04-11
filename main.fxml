@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXNodesList?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?language rexx?>
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <AnchorPane fx:id="anchorPane" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane hgap="30.0" layoutX="44.0" layoutY="72.0" prefHeight="822.0" prefWidth="1447.0" vgap="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Text fx:id="orderText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Open orders" textAlignment="CENTER" wrappingWidth="174.13671875" GridPane.halignment="CENTER">
+                            <font>
+                                <Font name="Arial" size="27.0" />
+                            </font>
+                        </Text>
+                        <TableView fx:id="orderTable" prefHeight="776.0" prefWidth="663.0" GridPane.rowIndex="1">
+                            <columns>
+                                <TableColumn fx:id="orderIDCol" prefWidth="75.0" text="OrderID" />
+                                <TableColumn fx:id="tableNumberCol" prefWidth="75.0" text="Table Number" />
+                            </columns>
+                        </TableView>
+                        <TableView fx:id="orderDetailsTable" editable="true" prefHeight="777.0" prefWidth="689.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <columns>
+                                <TableColumn fx:id="orderProdIDCol" prefWidth="75.0" text="Product ID" />
+                                <TableColumn fx:id="orderProdNameCol" prefWidth="75.0" text="Product" />
+                                <TableColumn fx:id="orderProdPriceCol" prefWidth="75.0" text="Price" />
+                                <TableColumn fx:id="orderStatusCol" prefWidth="75.0" text="Status" />
+                            </columns>
+                        </TableView>
+                        <Text fx:id="orderText" strokeType="OUTSIDE" strokeWidth="0.0" text="Order details" textAlignment="CENTER" wrappingWidth="174.13671875" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                            <font>
+                                <Font name="Arial" size="27.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </center>
+    <right>
+        <VBox minWidth="100.0" prefWidth="200.0" spacing="20.0" styleClass="buttonBox">
+            <children>
+                <JFXButton fx:id="splitPayButton" buttonType="RAISED" mnemonicParsing="false" onAction="slotDir=arg(arg()); call startSplitPayment slotDir;" prefHeight="100.0" prefWidth="150.0" styleClass="menuButton" text="Split Bill" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="fullPayButton" buttonType="RAISED" mnemonicParsing="false" onAction="slotDir=arg(arg()); call startFullPayment slotDir;" prefHeight="100.0" prefWidth="200.0" styleClass="menuButton" text="Pay All" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" mnemonicParsing="false" onAction="slotDir=arg(arg()); call reprintLastReceipt slotDir;" prefHeight="100.0" prefWidth="200.0" styleClass="menuButton" text="Reprint last receipt" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton fx:id="showStatsButton" buttonType="RAISED" mnemonicParsing="false" onAction="slotDir=arg(arg()); call openStats slotDir;" prefHeight="100.0" prefWidth="200.0" styleClass="menuButton" text="Statistics" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" lineSpacing="1.0" mnemonicParsing="false" onAction="slotDir=arg(arg()); call quitApp slotDir;" prefHeight="100.0" prefWidth="175.0" styleClass="menuButton" text="Quit" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </JFXButton>
+            </children>
+            <BorderPane.margin>
+                <Insets left="20.0" right="50.0" top="30.0" />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </padding>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+    </bottom>
+    <top>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" styleClass="buttonBox" BorderPane.alignment="CENTER">
+            <children>
+                <JFXNodesList fx:id="nodeList" prefHeight="40.0" prefWidth="42.0" spacing="20.0">
+                    <children>
+                        <JFXButton buttonType="RAISED" text="Order">
+                            <styleClass>
+                                <String fx:value="animated-option-button" />
+                                <String fx:value="menuButton" />
+                            </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="newOrderButton" buttonType="RAISED" onAction="slotDir=arg(arg()); call newOrder slotDir;" styleClass="animated-option-button" text="New Order" />
+                        <JFXButton fx:id="editOrderButton" buttonType="RAISED" onAction="slotDir=arg(arg()); call editOrder slotDir;" styleClass="animated-option-button" text="Edit Order" />
+                    </children>
+                </JFXNodesList>
+                <JFXNodesList fx:id="nodeList" prefHeight="40.0" prefWidth="42.0" spacing="20.0">
+                    <children>
+                        <JFXButton buttonType="RAISED" text="User">
+                            <styleClass>
+                                <String fx:value="animated-option-button" />
+                                <String fx:value="menuButton" />
+                            </styleClass>
+                        </JFXButton>
+                        <JFXButton fx:id="addUserButton" buttonType="RAISED" onAction="slotDir=arg(arg()); call openUserForm slotDir;" styleClass="animated-option-button" text="New User" />
+                        <JFXButton fx:id="changePasswordButton" buttonType="RAISED" onAction="slotDir=arg(arg()); call openPasswordChangeWindow slotDir;" styleClass="animated-option-button" text="Change Password" />
+                        <JFXButton fx:id="editUserButton" buttonType="RAISED" onAction="slotDir=arg(arg()); call editUserScene slotDir;" styleClass="animated-option-button" text="Edit Users" />
+                    </children>
+                </JFXNodesList>
+                <JFXButton fx:id="addProductButton" buttonType="RAISED" mnemonicParsing="false" onAction="slotDir=arg(arg()); call openProductForm slotDir;" styleClass="menuButton" text="Add Product" textAlignment="CENTER" />
+                <JFXButton fx:id="editBizInfButton" buttonType="RAISED" lineSpacing="1.0" mnemonicParsing="false" onAction="slotDir=arg(arg()); call openBizInfWindow slotDir;" styleClass="menuButton" text="Edit business information" textAlignment="CENTER" wrapText="true" />
+            </children>
+            <BorderPane.margin>
+                <Insets top="20.0" />
+            </BorderPane.margin>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+        </HBox>
+    </top>
+    <fx:script source="main_controller.rex" />
+</BorderPane>

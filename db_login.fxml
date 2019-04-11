@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?language rexx?>
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <fx:script source="controller.rex" />
+    <children>
+        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Group StackPane.alignment="CENTER">
+                    <children>
+                        <VBox alignment="CENTER" spacing="30.0">
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Connect to datebase" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="42.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="submitButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="slotDir=arg(arg()); call submitDatabaseLogin slotDir;" text="Connect">
+                                    <font>
+                                        <Font size="36.0" />
+                                    </font>
+                                </Button>
+                                <Text fx:id="errorText" fill="red" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Failed to establish connection" textAlignment="CENTER" wrappingWidth="170.45703125" />
+                                <Text fx:id="successText" fill="green" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connection succesful." textAlignment="CENTER" wrappingWidth="170.45703125" />
+                            </children>
+                        </VBox>
+                    </children>
+                </Group>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

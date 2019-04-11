@@ -1,0 +1,56 @@
+.grid {
+  -fx-background-color: lightgray;
+  -fx-vgap: 1;
+  -fx-hgap: 1;
+  -fx-padding: 3;
+}
+.buttonBox {
+  -fx-background-color: lightgray;
+  -fx-border-width: 1px;
+  -fx-border-color: black;
+  -fx-border-style: solid;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#1A4048, #3192C1);
+}
+#centerPane {
+  -fx-background-color: #EEEEEE;
+}
+.animated-option-button {
+  -fx-border-width: 4px;
+}
+.button {
+  -fx-text-fill: white;  
+  -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+  -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 2);
+  -fx-pref-width: 200px;
+  -fx-pref-height: 100px;
+  -fx-font-size: 22px;
+}
+.menuButton {
+  -fx-font-size: 18px;
+}
+.dialog-pane .button {
+  -fx-pref-height: 40px;
+  -fx-pref-width: 150px;
+}
+.table-row-cell {
+  -fx-cell-size: 50px;
+  -fx-font-size: 20px;
+}
+.textInput {
+  -fx-font-size: 23px;
+}
+.slider .track {
+    -fx-pref-height:20;
+}
+
+.slider:vertical .track {
+    -fx-pref-width:20;
+}
+
+.slider .thumb {
+    -fx-pref-height: 30;
+    -fx-pref-width: 30;
+}

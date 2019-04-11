@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?language rexx?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <VBox prefHeight="1080.0" prefWidth="1920.0">
+            <children>
+                <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <GridPane alignment="CENTER" hgap="10.0" layoutX="180.0" layoutY="218.0" prefHeight="414.0" prefWidth="481.0" styleClass="grid" vgap="10.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="108.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="153.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Product" textAlignment="CENTER" wrappingWidth="270.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="32.0" />
+                                    </font>
+                                </Text>
+                                <Label alignment="CENTER" prefHeight="27.0" prefWidth="105.0" text="Name" textAlignment="JUSTIFY" GridPane.rowIndex="1">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="27.0" prefWidth="105.0" text="Price" textAlignment="JUSTIFY" GridPane.rowIndex="2">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" prefHeight="27.0" prefWidth="105.0" text="Tax" textAlignment="JUSTIFY" GridPane.rowIndex="3">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <ChoiceBox fx:id="taxChoiceBox" prefHeight="25.0" prefWidth="153.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <TextField fx:id="productName" promptText="Product name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <TextField fx:id="productPrice" prefHeight="25.0" prefWidth="130.0" promptText="Product price" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Button fx:id="addProductButton" mnemonicParsing="false" onAction="slotDir=arg(arg()); call submitProduct slotDir;" prefHeight="50.0" prefWidth="336.0" text="Create" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                                    <font>
+                                        <Font size="23.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </GridPane>
+                        <TableView fx:id="productTable" editable="true" layoutX="891.0" layoutY="164.0" prefHeight="598.0" prefWidth="705.0">
+                            <columns>
+                                <TableColumn fx:id="productIDCol" prefWidth="96.0" text="ID" />
+                                <TableColumn fx:id="productNameCol" prefWidth="92.0" text="Name" />
+                                <TableColumn fx:id="productPriceCol" prefWidth="83.0" text="Price" />
+                                <TableColumn fx:id="productTaxCol" prefWidth="97.0" text="Tax" />
+                            </columns>
+                        </TableView>
+                        <VBox layoutX="1690.0" layoutY="167.0" spacing="20.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call editProduct slotDir;" prefHeight="50.0" prefWidth="150.0" text="Edit product">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call deleteProduct slotDir;" prefHeight="50.0" prefWidth="150.0" text="Delete product">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </children>
+                    <fx:script source="add_product_controller.rex" />
+                </AnchorPane>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call returnToMain slotDir;" prefHeight="69.0" prefWidth="169.0" text="Back to main" BorderPane.alignment="CENTER_LEFT">
+            <font>
+                <Font size="22.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="20.0" left="20.0" />
+            </BorderPane.margin>
+        </Button>
+    </bottom>
+</BorderPane>

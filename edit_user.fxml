@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?language rexx?>
+<VBox prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Button layoutX="42.0" layoutY="988.0" mnemonicParsing="false" onAction="slotDir=arg(arg()); call returnToMain slotDir;" prefHeight="50.0" prefWidth="118.0" text="Back to main">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+                <TableView fx:id="userTable" layoutX="269.0" layoutY="120.0" prefHeight="675.0" prefWidth="1099.0">
+                    <columns>
+                        <TableColumn fx:id="idCol" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="usernameCol" prefWidth="75.0" text="Username" />
+                        <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="surnameCol" prefWidth="75.0" text="Surname" />
+                        <TableColumn fx:id="accessRightCol" prefWidth="75.0" text="Access right" />
+                        <TableColumn fx:id="dateOfLastLoginCol" prefWidth="75.0" text="Date of last login" />
+                        <TableColumn fx:id="activeCol" prefWidth="75.0" text="Active" />
+                    </columns>
+                </TableView>
+                <VBox layoutX="1413.0" layoutY="120.0" spacing="20.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call editAccessRight slotDir;" prefHeight="73.0" prefWidth="250.0" styleClass="menuButton" text="Change access right">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call overwritePassword slotDir;" prefHeight="73.0" prefWidth="250.0" styleClass="menuButton" text="Change password">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="slotDir=arg(arg()); call changeActiveState slotDir;" prefHeight="73.0" prefWidth="250.0" styleClass="menuButton" text="(De)Activate account">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+            <fx:script source="edit_user_controller.rex" />
+        </AnchorPane>
+    </children>
+</VBox>
